@@ -10,7 +10,7 @@ function App() {
     var baseURI = "";
     const fetchBaseURI = async () => {
       const provider = new ethers.providers.JsonRpcProvider("https://ropsten.infura.io/v3/0f41846424184150a92dae3db952cdea");
-      let contractAddress = "0xbd85DF5441Ef8767681053294Aa4e2e94c0B33dD";
+      let contractAddress = "0x5bbA5C889aDCb9EF928F18f8298c4FE935F32aba";
       let contract = new ethers.Contract(contractAddress, ABI, provider);
       baseURI = await contract.getBaseURI();
       fetch(baseURI).then(res =>{
