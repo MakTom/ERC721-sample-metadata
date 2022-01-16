@@ -1,5 +1,6 @@
 const hre = require("hardhat");
 
+
 async function main() {
   const Nft = await hre.ethers.getContractFactory("NFT");
   const nft = await Nft.deploy();
@@ -9,6 +10,7 @@ async function main() {
   const existingnft = await hre.ethers.getContractAt("NFT", nft.address);
   await existingnft.Mint(nft.address);
   console.log("Minting is complete to: "+nft.address);
+
 }
 
 main()

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-const ABI = require('./ABI.json');
+const testABI = require('./artifacts/contracts/nft.sol/NFT.json');
 const ethers = require('ethers');
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
     var baseURI = "";
     const fetchBaseURI = async () => {
       const provider = new ethers.providers.JsonRpcProvider("https://ropsten.infura.io/v3/0f41846424184150a92dae3db952cdea");
-      let contractAddress = "0x5bbA5C889aDCb9EF928F18f8298c4FE935F32aba";
-      let contract = new ethers.Contract(contractAddress, ABI, provider);
+      let contractAddress = "0x2B4867486bC36C602954f9661Af3cF44Cc643B8F";
+      let contract = new ethers.Contract(contractAddress, testABI.abi, provider);
       baseURI = await contract.getBaseURI();
       fetch(baseURI).then(res =>{
         if (res.ok){
